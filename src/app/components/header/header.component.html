@@ -1,0 +1,109 @@
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Anton"/>
+
+<div id="header">
+
+  <div class="top_bar">
+    <div>
+      <img src="../../../assets/images/logo_white.png" class="img_logo" alt="logo">
+      <img src="../../../assets/images/Group%20106.png" class="menu_btn" [ngClass]="{hidden:status}" alt="btn" (click)="menu_active()">
+      <img src="../../../assets/images/61155.png" class="menu_btn" [ngClass]="{hidden:!status}" alt="btn" (click)="menu_active()">
+    </div>
+    <nav class="mobile_nav_menu" [ngClass]="{active:status}">
+      <a href="#">Home</a>
+      <a href="#">What we do</a>
+      <a href="#">About Us</a>
+      <a href="#">Our history</a>
+      <a href="#main">Contact us</a>
+      <p class="menu_title_text">Services</p>
+      <a href="#">Training and Implementation</a>
+      <a href="#">Cyber Consultants</a>
+      <a href="#">Consultancy and brand protection</a>
+      <a href="#">Software</a>
+    </nav>
+
+    <div class="nav_menu">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">What we do</a>
+      <a href="#main">
+        <button class="button" mat-raised-button>Contact Us</button>
+      </a>
+    </div>
+  </div>
+
+  <div class="middle_bar">
+    <div class="middle_bar_text">
+      <h1 class="middle_bar_text_title">NEVER CAUGHT OFF-GUARD AGAIN</h1>
+
+      <div>
+        <div class="middle_bar_text_content">We are specialist in protecting your assets and reputation to make sure you operate risk-free and focus on
+          your core business.
+        </div>
+        <button class="button middle_bar_text_button" mat-raised-button>Learn More</button>
+      </div>
+
+    </div>
+    <div><img src="../../../assets/images/space-helmetf%205.png" class="img_helmet" alt="helmet_image"></div>
+  </div>
+</div>
+
+<div id="main">
+  <div class="main_top_bar">
+    <div><a class="orange">CONTACT</a> US</div>
+    <div><a href="#header"><img src="../../../assets/images/Group%202279.png" class="scroll_btn" alt="back"></a></div>
+  </div>
+
+  <form [formGroup]="form" class="example-form">
+    <mat-form-field class="example-full-width" appearance="standard">
+      <mat-label>Full name</mat-label>
+      <input type="text" matInput formControlName="name" [formControl]="nameFormControl" placeholder="Volodymyr Zelensky">
+      <mat-error *ngIf="nameFormControl.hasError('pattern') && !nameFormControl.hasError('required')">
+        Please enter a valid name
+      </mat-error>
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Full name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="standard">
+      <mat-label>Company name</mat-label>
+      <input type="text" matInput formControlName="company" [formControl]="companyNameFormControl" placeholder="Company Name">
+      <mat-error *ngIf="companyNameFormControl.hasError('pattern') && !companyNameFormControl.hasError('required')">
+        Please enter a valid company name
+      </mat-error>
+      <mat-error *ngIf="companyNameFormControl.hasError('required')">
+        Company name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="standard">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="standard">
+      <mat-label>Phone number</mat-label>
+      <input type="text" matInput formControlName="phone" [formControl]="phoneFormControl" placeholder="0XX XXX XXXX">
+      <mat-error *ngIf="phoneFormControl.hasError('pattern') && !phoneFormControl.hasError('required')">
+        Please enter a valid phone number
+      </mat-error>
+      <mat-error *ngIf="phoneFormControl.hasError('required')">
+        Phone number is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="standard">
+      <mat-label>Write Us Messages</mat-label>
+      <input type="email" matInput formControlName="message" placeholder="Hello! My name is Volodymur.">
+    </mat-form-field>
+
+    <button class="button send_msg_button" mat-raised-button (click)=send()>Send Message</button>
+  </form>
+
+</div>
